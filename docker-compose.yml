@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: mlbdb-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres_usr
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mlb_db
+    volumes:
+      - mlbdb_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  mlbdb_postgres_data:
